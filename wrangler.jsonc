@@ -82,7 +82,8 @@
   "vars": {
     // "do-sqlite" keeps each room's messages in its Durable Object's SQLite storage.
     // "d1" writes them to the shared D1 database below instead.
-    "STORAGE_BACKEND": "do-sqlite"
+    "STORAGE_BACKEND": "d1",
+    "EMBER_SETUP_NAME_PLACEHOLDER": "Senthil Kumar Thangavel"
   },
 
   // The D1 database messages go to when STORAGE_BACKEND is "d1" (docs/self-hosting.md#storage-durable-object-sqlite-or-d1).
@@ -90,5 +91,5 @@
   // `pnpm run deploy` binds it only for "d1", making it first if the account has none of this name, and
   // applying apps/worker/migrations/ to it. `wrangler dev` keeps one on this machine, which
   // `pnpm --filter @ember/worker d1:migrate:local` migrates.
-  "d1_databases": [{ "binding": "DB", "database_name": "ember", "migrations_dir": "apps/worker/migrations" }]
+  "d1_databases": [{ "binding": "DB", "database_name": "ember", "database_id": "5872a9ce-bc22-45a8-a6d5-e1e4df2db8e3", "migrations_dir": "apps/worker/migrations" }]
 }
